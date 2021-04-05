@@ -6,7 +6,7 @@ app = Flask(__name__)
 mysql = pymysql.connect(
     host = 'cs470-project.cpmlwhtijlwu.us-east-2.rds.amazonaws.com',
     user = 'admin',
-    password = 'Kz3kD0in8nzRceRam2BQ',
+    password = '<password>',
     db = 'cs470_countries',
     )
 
