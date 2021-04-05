@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{% block title %} Travel Center {% endblock %}</h1>
+  {% for country in countries %}
+    <a href='#'>
+      <h2>{{ country[1] }}</h2>
+    </a>
+    <span class="badge badge-primary">{{ country[2] }}</span>
+    <hr>
+  {% endfor %}
+{% endblock %}
