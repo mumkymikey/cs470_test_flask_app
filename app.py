@@ -13,10 +13,17 @@ with open("database.yml", "r") as stream:
         print(exc)
 
 mysql = pymysql.connect(
+<<<<<<< HEAD
     host = db_config['MYSQL_HOST'],
     user = db_config['MYSQL_USER'],
     password = db_config['MYSQL_PASSWORD'],
     db = db_config['MYSQL_DB'],
+=======
+    host = 'cs470-project.cpmlwhtijlwu.us-east-2.rds.amazonaws.com',
+    user = 'admin',
+    password = '<password>',
+    db = 'cs470_countries',
+>>>>>>> aea8be7f5cd101499eb0e4444f2c8b649e65a281
     )
 
 # base endpoint that renders world map UI
