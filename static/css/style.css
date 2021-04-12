@@ -1,6 +1,98 @@
-h1 {
-  border: 2px #eee solid;
-  color: green;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #01171b;
+}
+
+#banner {
+  background-color: #006284;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.15em;
+}
+
+nav {
+  background-color: aliceblue;
+  padding: 0.5em;
+}
+
+nav form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+
+#btn_query {
+  background-color: #0f0;
+  font-size: 1.5em;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 1em;
+  grid-column: 1 / 13;
+  grid-row: 1 / 6;
+}
+
+footer {
+  grid-column: 3 / 11;
+  grid-row: 6 / 8;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: aliceblue;
+  border: 3px solid red;
+  z-index: 0;
+}
+
+svg path {
+  fill: #00394f;
+  stroke: #eee;
+  stroke-width: 0.25;
+}
+
+svg path:hover {
+  fill: #006284;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#results {
+  grid-column: 2 / 12;
+  grid-row: 2 / 8;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: aliceblue;
+  border: 3px solid red;
+  padding: 2em;
   text-align: center;
-  padding: 10px;
+
+  z-index: 1;
+  display: none;
+}
+
+#wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0;
 }

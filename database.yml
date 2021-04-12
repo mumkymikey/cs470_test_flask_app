@@ -1,0 +1,4 @@
+MYSQL_USER: 'admin'
+MYSQL_PASSWORD: 'Kz3kD0in8nzRceRam2BQ'
+MYSQL_DB: 'cs470_countries'
+MYSQL_HOST: 'cs470-project.cpmlwhtijlwu.us-east-2.rds.amazonaws.com'

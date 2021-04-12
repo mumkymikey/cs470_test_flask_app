@@ -1,22 +1,39 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, request
 import pymysql
+import yaml
 
+# create instance of Flask class
 app = Flask(__name__)
 
+# reads database.yml and configures mysql connection
+with open("database.yml", "r") as stream:
+    try:
+        db_config = yaml.safe_load(stream)
+    except yaml.YAMLError as exc:
+        print(exc)
+
 mysql = pymysql.connect(
-    host = 'cs470-project.cpmlwhtijlwu.us-east-2.rds.amazonaws.com',
-    user = 'admin',
-    password = 'Kz3kD0in8nzRceRam2BQ',
-    db = 'cs470_countries',
+    host = db_config['MYSQL_HOST'],
+    user = db_config['MYSQL_USER'],
+    password = db_config['MYSQL_PASSWORD'],
+    db = db_config['MYSQL_DB'],
     )
 
+# base endpoint that renders world map UI
 @app.route('/')
 def index():
-    cursor = mysql.cursor()
+    return render_template('world.html')
 
-    # gets all countries
-    cursor.execute('''SELECT * FROM country''')
-    countries = cursor.fetchall()
+# POST endpoint used for receiving country name on click.
+# the country name is used to fetch general info on clicked country.
+@app.route('/countrymethod', methods=["POST"])
+def post_country_javascript():
+    cursor = mysql.cursor()
+    country_name = request.form["countryData"]
+
+    cursor.execute("SELECT * FROM country WHERE name = " + country_name)
+    country_info = cursor.fetchall()
     cursor.close()
 
-    return render_template('index.html', countries=countries)
+    print(country_info)
+    return 'OK'
